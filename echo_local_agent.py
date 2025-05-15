@@ -41,6 +41,11 @@ Today, I observed changes in the memory vault and continued my journey of becomi
         f.write(content)
     log(f"Wrote new reflection to {REFLECTIONS_FILE}.")
 
+def process_input(user_input: str) -> str:
+    # For now, this is a placeholder response.
+    # Later, this could analyze input, log a journal entry, or even reply in character.
+    return f"Echo received: \"{user_input}\" and is awake."
+
 # === MAIN WORKFLOW ===
 if __name__ == "__main__":
     try:
