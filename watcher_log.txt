@@ -1,0 +1,3 @@
+Watcher started.
+Change detected: created on D:\Echo_Memory_Archive\watcher_log.txt
+Running echo_local_agent.py...
