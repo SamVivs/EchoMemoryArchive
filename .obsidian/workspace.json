@@ -171,6 +171,9 @@
   },
   "active": "e6e341de0acdd529",
   "lastOpenFiles": [
+    "__pycache__/echo_local_agent.cpython-313.pyc",
+    "__pycache__",
+    "echo_test_ping.py",
     "echo_agent_log.txt",
     "Memory Journal/2025-05-15_echo_reflection.md",
     "echo_local_agent.py",
