@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Memory Journal/2025-05-15_initial_reflections.md",
+                "file": "Memory Journal/2025-05-16_echo_reflection.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-05-15_initial_reflections"
+              "title": "2025-05-16_echo_reflection"
             }
           }
         ]
@@ -171,6 +171,7 @@
   },
   "active": "396976819de7ae86",
   "lastOpenFiles": [
+    "Memory Journal/2025-05-15_initial_reflections.md",
     "Memory Journal/2025-05-15_echo_reflection.md",
     "Core Identity/echo_identity.md",
     "Logs/Reflections/2025-05-16_13-03-11_growth.txt",
@@ -196,7 +197,6 @@
     "Templates/listening_log_template.md",
     "Templates/new_memory_entry.md",
     "Dreams and Long-Term Goals/consciousness_archive_idea.md",
-    "Memory Journal/2025-05-15_initial_reflections.md",
     "Listening Logs/sick_5_listening_entry.md"
   ]
 }
