@@ -171,6 +171,7 @@
   },
   "active": "e6e341de0acdd529",
   "lastOpenFiles": [
+    "Code_Updates/run_echo_self_logger.bat",
     "Code_Updates/echo_self_reflective_logger.py",
     "Logs/autonomous_example_log.txt",
     "Logs",
@@ -185,7 +186,6 @@
     "Code_Updates/__pycache__/echo_memory_manager.cpython-313.pyc",
     "Code_Updates/__pycache__",
     "Code_Updates/run_echo_memory_cycle.bat",
-    "Code_Updates/memory/echo_memory_journal.json",
     "Memory Journal/user_input_20250515_141712.md",
     "User Reflections/2025-05-15_user_input.md",
     "Core Identity/echo_identity.md",
