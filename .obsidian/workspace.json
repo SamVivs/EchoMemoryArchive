@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Memory Journal/2025-05-15_initial_reflections.md",
+                "file": "User Reflections/2025-05-15_user_input.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-05-15_initial_reflections"
+              "title": "2025-05-15_user_input"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Memory Journal/2025-05-15_initial_reflections.md",
+                "file": "User Reflections/2025-05-15_user_input.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2025-05-15_initial_reflections"
+              "title": "Backlinks for 2025-05-15_user_input"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Memory Journal/2025-05-15_initial_reflections.md",
+                "file": "User Reflections/2025-05-15_user_input.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2025-05-15_initial_reflections"
+              "title": "Outgoing links from 2025-05-15_user_input"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Memory Journal/2025-05-15_initial_reflections.md",
+                "file": "User Reflections/2025-05-15_user_input.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-05-15_initial_reflections"
+              "title": "Outline of 2025-05-15_user_input"
             }
           }
         ]
@@ -171,6 +171,7 @@
   },
   "active": "e6e341de0acdd529",
   "lastOpenFiles": [
+    "Memory Journal/2025-05-15_initial_reflections.md",
     "watcher_log.txt",
     "watcher.py",
     "watch_and_commit.py",
@@ -185,7 +186,6 @@
     "__pycache__",
     "echo_test_ping.py",
     "echo_agent_log.txt",
-    "Memory Journal/2025-05-15_echo_reflection.md",
-    "echo_local_agent.py"
+    "Memory Journal/2025-05-15_echo_reflection.md"
   ]
 }
