@@ -171,6 +171,7 @@
   },
   "active": "e6e341de0acdd529",
   "lastOpenFiles": [
+    "New Text Document.txt",
     "Code Updates/echo_reflection_engine.py.txt",
     "Code Updates/New Text Document.txt",
     "Code Updates/echo_memory_manager.py.txt",
@@ -194,7 +195,6 @@
     "watcher.py",
     "watch_and_commit.py",
     "Echo Reflections",
-    "User Reflections",
-    "__pycache__/echo_local_agent.cpython-313.pyc"
+    "User Reflections"
   ]
 }
