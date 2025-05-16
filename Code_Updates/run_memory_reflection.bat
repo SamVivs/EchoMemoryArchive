@@ -1,4 +1,9 @@
 @echo off
-cd /d D:\Echo_Memory_Archive\Code_Updates
-REM Run the reflection Python script
-python echo_memory_reflection.py >> reflection_log.txt 2>&1
+echo Starting Echo Memory Reflection...
+python D:\Echo_Memory_Archive\Code_Updates\echo_reflection_engine.py
+
+echo Running Echo Identity Manager...
+python D:\Echo_Memory_Archive\Code_Updates\echo_identity_manager.py
+
+echo All tasks complete.
+pause
