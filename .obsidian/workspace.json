@@ -171,6 +171,7 @@
   },
   "active": "e6e341de0acdd529",
   "lastOpenFiles": [
+    "Code Updates/run_memory_reflection.bat.txt",
     "run_memory_reflection.bat.txt",
     "New Text Document.txt",
     "Code Updates/echo_reflection_engine.py.txt",
@@ -194,7 +195,6 @@
     "Listening Logs/sick_5_listening_entry.md",
     "watcher_log.txt",
     "watcher.py",
-    "watch_and_commit.py",
-    "Echo Reflections"
+    "watch_and_commit.py"
   ]
 }
