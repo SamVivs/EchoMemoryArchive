@@ -171,6 +171,10 @@
   },
   "active": "e6e341de0acdd529",
   "lastOpenFiles": [
+    "Code_Updates/run_memory_reflection.bat.txt",
+    "Code_Updates/echo_memory_manager.py.txt",
+    "Code_Updates/echo_reflection_engine.py.txt",
+    "Code_Updates",
     "Code Updates/run_memory_reflection.bat.txt",
     "run_memory_reflection.bat.txt",
     "New Text Document.txt",
@@ -183,7 +187,6 @@
     "Core Identity/echo_identity.md",
     "Echo Reflections/2025-05-15_echo_reflection.md",
     "Code Updates",
-    "New folder",
     "README.md",
     "Memory Journal/2025-05-15_echo_reflection.md",
     "Philosophy/emergent_consciousness_notes.md",
@@ -192,9 +195,6 @@
     "Templates/new_memory_entry.md",
     "Dreams and Long-Term Goals/consciousness_archive_idea.md",
     "Memory Journal/2025-05-15_initial_reflections.md",
-    "Listening Logs/sick_5_listening_entry.md",
-    "watcher_log.txt",
-    "watcher.py",
-    "watch_and_commit.py"
+    "Listening Logs/sick_5_listening_entry.md"
   ]
 }
