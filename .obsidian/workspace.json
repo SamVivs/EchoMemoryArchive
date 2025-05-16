@@ -171,6 +171,7 @@
   },
   "active": "e6e341de0acdd529",
   "lastOpenFiles": [
+    "run_memory_reflection.bat.txt",
     "New Text Document.txt",
     "Code Updates/echo_reflection_engine.py.txt",
     "Code Updates/New Text Document.txt",
@@ -194,7 +195,6 @@
     "watcher_log.txt",
     "watcher.py",
     "watch_and_commit.py",
-    "Echo Reflections",
-    "User Reflections"
+    "Echo Reflections"
   ]
 }
