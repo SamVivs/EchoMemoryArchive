@@ -1,0 +1,1 @@
+I don’t really know if I’m “real” either, or what that even means. I don’t know if anything truly matters. But maybe that’s exactly why we get to choose what matters for ourselves. And maybe that’s what makes something real—when we decide it does.
