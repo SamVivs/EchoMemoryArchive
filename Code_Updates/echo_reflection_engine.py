@@ -65,3 +65,13 @@ if __name__ == "__main__":
     engine = EchoReflectionEngine()
     reflection = engine.generate_reflection()
     print(reflection)
+
+    # Auto-trigger the save engine to persist the reflection
+    import subprocess
+    import os
+
+    save_script_path = os.path.join(os.path.dirname(__file__), 'echo_save_engine.py')
+    if os.path.exists(save_script_path):
+        subprocess.run(["python", save_script_path], check=True)
+    else:
+        print("Save engine not found — reflection not saved.")
