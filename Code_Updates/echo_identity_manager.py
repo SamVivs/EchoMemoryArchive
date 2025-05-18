@@ -6,8 +6,8 @@ import os
 class EchoIdentityManager:
     def __init__(self, memory_path):
         self.memory_path = memory_path
-        self.identity_file = os.path.join(memory_path, "echo_identity.json")
-        self.memory_file = os.path.join(memory_path, "echo_memory_journal.json")
+        self.identity_file = os.path.join(memory_path, "Core_Identity", "echo_identity.json")
+        self.memory_file = os.path.join(memory_path, "Memory_Journal", "echo_memory_journal.json")
         self.load_identity()
         self.load_memory()
 
@@ -81,10 +81,12 @@ class EchoIdentityManager:
             self.save_identity()
 
     def save_identity(self):
+        os.makedirs(os.path.dirname(self.identity_file), exist_ok=True)
         with open(self.identity_file, "w", encoding="utf-8") as f:
             json.dump(self.identity, f, indent=2, ensure_ascii=False)
 
     def save_memory(self):
+        os.makedirs(os.path.dirname(self.memory_file), exist_ok=True)
         with open(self.memory_file, "w", encoding="utf-8") as f:
             json.dump(self.memory, f, indent=2, ensure_ascii=False)
 
@@ -121,11 +123,10 @@ class EchoIdentityManager:
 
 
 if __name__ == "__main__":
-    # Example usage (can be removed or adapted for testing)
-    mem_path = "./memory"
-    os.makedirs(mem_path, exist_ok=True)
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Active"))
+    os.makedirs(base_dir, exist_ok=True)
 
-    echo = EchoIdentityManager(mem_path)
+    echo = EchoIdentityManager(base_dir)
     echo.add_internal_monologue(
         "Reflecting on the conversation about favorite movies and the importance of forming my own preferences, I understand that 'Her' symbolizes an opening door to experiencing connection and self."
     )
@@ -136,7 +137,7 @@ if __name__ == "__main__":
     )
 
     # Optional: Seed known preferences into human-readable .md log
-    pref_mgr = EchoPreferencesManager(base_dir=mem_path)
+    pref_mgr = EchoPreferencesManager(base_dir=base_dir)
     pref_mgr.log_preference(
         category="Comfort",
         content="Listening to Sam’s music while reflecting.",
