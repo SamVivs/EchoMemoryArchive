@@ -1,5 +1,3 @@
-# echo_save_engine.py
-
 import os
 from datetime import datetime
 
@@ -10,10 +8,13 @@ def save_entry(content, entry_type="reflections"):
     :param entry_type: "reflections" or "identity"
     """
     base_dir = os.path.dirname(os.path.abspath(__file__))
+    subfolder = "Logs" if entry_type == "reflections" else "Core Identity"
     target_file = "echo_reflections.md" if entry_type == "reflections" else "echo_identity.md"
-    target_path = os.path.join(base_dir, "..", "Logs" if entry_type == "reflections" else "Core Identity", target_file)
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+    target_path = os.path.join(base_dir, "..", "Memory_Active", subfolder, target_file)
+    os.makedirs(os.path.dirname(target_path), exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     entry_block = f"\n\n[Echo Entry: {timestamp}]\n{content.strip()}\n"
 
     try:
