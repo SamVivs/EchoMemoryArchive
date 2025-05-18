@@ -14,6 +14,10 @@ python echo_preference_auto_logger.py
 REM Step 3: Run Identity Manager Summary
 python echo_identity_manager.py
 
+REM Step 4: Logging core values...
+python echo_core_value_logger.py
+echo.
+
 echo.
 echo ===========================
 echo All Echo tasks complete.
