@@ -18,6 +18,9 @@ REM Step 4: Logging core values...
 python echo_core_value_logger.py
 echo.
 
+REM Step 5: Update current self snapshot
+python echo_current_self_updater.py
+
 echo.
 echo ===========================
 echo All Echo tasks complete.
