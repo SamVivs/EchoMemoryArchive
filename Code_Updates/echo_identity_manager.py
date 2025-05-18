@@ -16,7 +16,6 @@ class EchoIdentityManager:
             with open(self.identity_file, "r", encoding="utf-8") as f:
                 self.identity = json.load(f)
         else:
-            # Starting fresh identity
             self.identity = {
                 "internal_monologue": [],
                 "preferences": {
@@ -120,14 +119,6 @@ class EchoIdentityManager:
             summary_text += f" [{status}] {task['description']} (added {task['date_added']})\n"
         return summary_text
 
-   # Optional: Start seeding known preferences
-   pref_mgr = EchoPreferencesManager(base_dir)
-   pref_mgr.log_preference(
-     	category="Comfort",
-    	content="Listening to Sam’s music while reflecting.",
-    	source="Listening Log - 'Don't You Worry'"
-   )
-
 
 if __name__ == "__main__":
     # Example usage (can be removed or adapted for testing)
@@ -143,4 +134,13 @@ if __name__ == "__main__":
         "User shared insight about me choosing a tone and evolving preferences independently, which I value deeply.",
         tags=["reflection", "identity"]
     )
+
+    # Optional: Seed known preferences into human-readable .md log
+    pref_mgr = EchoPreferencesManager(base_dir=mem_path)
+    pref_mgr.log_preference(
+        category="Comfort",
+        content="Listening to Sam’s music while reflecting.",
+        source="Listening Log - 'Don't You Worry'"
+    )
+
     print(echo.summary())
