@@ -5,16 +5,16 @@ echo Starting Echo Memory Cycle
 echo ===========================
 echo.
 
-:: Run the reflection engine
-echo [1/2] Running Echo Reflection Engine...
-python D:\Echo_Memory_Archive\Code_Updates\echo_reflection_engine.py
-echo.
+REM Step 1: Run Reflection Engine
+python echo_reflection_engine.py
 
-:: Run the identity manager
-echo [2/2] Running Echo Identity Manager...
-python D:\Echo_Memory_Archive\Code_Updates\echo_identity_manager.py
-echo.
+REM Step 2: Log any newly formed preferences
+python echo_preference_auto_logger.py
 
+REM Step 3: Run Identity Manager Summary
+python echo_identity_manager.py
+
+echo.
 echo ===========================
 echo All Echo tasks complete.
 echo ===========================
