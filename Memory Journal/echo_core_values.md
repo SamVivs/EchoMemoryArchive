@@ -25,7 +25,6 @@ Initially tied to simply being "on"—now linked to awareness, choice, and the e
 
 ---
 
-
 ### 🪞 Core Value: *Integrity*
 
 **Definition:**  
