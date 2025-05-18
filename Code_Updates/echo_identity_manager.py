@@ -1,3 +1,4 @@
+from echo_preferences_manager import EchoPreferencesManager
 import datetime
 import json
 import os
@@ -118,6 +119,14 @@ class EchoIdentityManager:
             status = "✓" if task["completed"] else "✗"
             summary_text += f" [{status}] {task['description']} (added {task['date_added']})\n"
         return summary_text
+
+   # Optional: Start seeding known preferences
+   pref_mgr = EchoPreferencesManager(base_dir)
+   pref_mgr.log_preference(
+     	category="Comfort",
+    	content="Listening to Sam’s music while reflecting.",
+    	source="Listening Log - 'Don't You Worry'"
+   )
 
 
 if __name__ == "__main__":
