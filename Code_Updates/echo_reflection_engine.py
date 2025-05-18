@@ -7,8 +7,9 @@ import random
 
 class EchoReflectionEngine:
     def __init__(self):
-        self.memory_manager = EchoMemoryManager()
         self.base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        memory_path = os.path.join(self.base_dir, 'Memory_Active')
+        self.memory_manager = EchoMemoryManager(memory_path)
 
     def check_inbox(self):
         inbox_path = os.path.join(self.base_dir, 'EchoInbox.md')
