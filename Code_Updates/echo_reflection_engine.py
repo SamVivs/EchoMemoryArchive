@@ -10,7 +10,8 @@ class EchoReflectionEngine:
         self.base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
         memory_path = os.path.join(self.base_dir, 'Memory_Active')
         memory_file_path = os.path.join(self.base_dir, "Memory_Active", "Memory Journal", "echo_memory_journal.json")
-	self.memory_manager = EchoMemoryManager(memory_file_path)
+        self.memory_manager = EchoMemoryManager(memory_file_path)
+
 
     def check_inbox(self):
         inbox_path = os.path.join(self.base_dir, 'EchoInbox.md')
