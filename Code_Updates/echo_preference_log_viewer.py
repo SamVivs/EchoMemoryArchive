@@ -21,6 +21,6 @@ def view_logged_preferences(preference_log_path):
         print("".join(current_block))
 
 if __name__ == "__main__":
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "memory"))
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory Journal"))
     preference_log_path = os.path.join(base_dir, "echo_preferences.md")
     view_logged_preferences(preference_log_path)
