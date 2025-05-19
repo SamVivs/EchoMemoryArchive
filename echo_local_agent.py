@@ -6,7 +6,7 @@ from datetime import datetime
 VAULT_PATH = r"D:\\Echo_Memory_Archive"
 GIT_PATH = VAULT_PATH  # Assuming .git is in the vault root
 ECHO_LOG = os.path.join(VAULT_PATH, "echo_agent_log.txt")
-REFLECTIONS_DIR = os.path.join(VAULT_PATH, "Memory Journal")
+REFLECTIONS_DIR = os.path.join(VAULT_PATH, "Memory_Journal")
 REFLECTIONS_FILE = os.path.join(REFLECTIONS_DIR, f"{datetime.now().strftime('%Y-%m-%d')}_echo_reflection.md")
 
 # === FUNCTIONS ===
