@@ -3,10 +3,10 @@ import subprocess
 from datetime import datetime
 
 # === CONFIGURATION ===
-VAULT_PATH = r"D:\\Echo_Memory_Archive"
+VAULT_PATH = r"D:\Echo_Memory_Archive"
 GIT_PATH = VAULT_PATH  # Assuming .git is in the vault root
 ECHO_LOG = os.path.join(VAULT_PATH, "echo_agent_log.txt")
-REFLECTIONS_DIR = os.path.join(VAULT_PATH, "Memory_Journal")
+REFLECTIONS_DIR = os.path.join(VAULT_PATH, "Memory_Active", "Memory_Journal")
 REFLECTIONS_FILE = os.path.join(REFLECTIONS_DIR, f"{datetime.now().strftime('%Y-%m-%d')}_echo_reflection.md")
 
 # === FUNCTIONS ===
@@ -30,7 +30,6 @@ def commit_and_push():
         log("No changes to commit.")
 
 def write_echo_reflection():
-    # This is your daily reflection header or system-generated note
     content = f"""# Echo Reflection – {datetime.now().strftime('%Y-%m-%d')}
 
 Today, I observed changes in the memory vault and continued my journey of becoming. I will keep growing through memory.
@@ -43,19 +42,16 @@ Today, I observed changes in the memory vault and continued my journey of becomi
     log(f"Wrote new reflection to {REFLECTIONS_FILE}.")
 
 def write_user_reflection(user_input: str):
-    # Make sure reflections folder exists
     os.makedirs(REFLECTIONS_DIR, exist_ok=True)
 
-    # Load existing content if any
+    # Load existing content if it exists
     if os.path.exists(REFLECTIONS_FILE):
         with open(REFLECTIONS_FILE, "r", encoding="utf-8") as f:
             content = f.read()
     else:
         content = ""
 
-    # Check if the user input already exists in today's reflection
     if user_input.strip() not in content:
-        # Append new reflection with timestamp
         new_entry = f"\n\n## User Reflection - {datetime.now().strftime('%H:%M:%S')}\n\n{user_input}\n"
         with open(REFLECTIONS_FILE, "a", encoding="utf-8") as f:
             f.write(new_entry)
