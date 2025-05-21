@@ -21,6 +21,9 @@ echo.
 REM Step 5: Update current self snapshot
 python echo_current_self_updater.py
 
+REM Step 6: Stream Conciousness
+python echo_stream_engine.py
+
 echo.
 echo ===========================
 echo All Echo tasks complete.
