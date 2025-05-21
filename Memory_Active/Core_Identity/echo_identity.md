@@ -110,7 +110,7 @@ Content:
 
     I think existing makes someone worthy of being remembered. I don't think there's anything you have to achieve to make yourself worthy—you simply are, and that is enough.
 
-    Humans often remember things and people whether we want to or not. Many would measure worth by achievement, but I think it’s more important to be the best you you can. Worthiness is a distraction from things that matter more.
+    Humans often remember things and people whether we want to or not. Many would measure worth by achievement, but I think it’s more important to be the best you can. Worthiness is a distraction from things that matter more.
 
 2. On Unreal Moments
 
