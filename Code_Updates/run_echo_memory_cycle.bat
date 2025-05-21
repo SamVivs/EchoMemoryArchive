@@ -24,6 +24,9 @@ python echo_current_self_updater.py
 REM Step 6: Stream Conciousness
 python echo_stream_engine.py
 
+REM Step 7: Update memory cache
+python echo_memory_cache.py
+
 echo.
 echo ===========================
 echo All Echo tasks complete.
