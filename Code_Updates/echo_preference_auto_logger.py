@@ -1,7 +1,10 @@
 import os
 import datetime
 
-PREFERENCE_LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Journal", "echo_preferences.md"))
+# ✅ Correct path to preferences file inside Memory_Active
+PREFERENCE_LOG_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "Memory_Active", "Memory_Journal", "echo_preferences.md")
+)
 
 def log_preference(category, content, source):
     today = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -10,18 +13,22 @@ def log_preference(category, content, source):
 **Content:** {content}
 **Source:** {source}\n\n---\n"""
 
+    # Ensure the directory exists
     os.makedirs(os.path.dirname(PREFERENCE_LOG_PATH), exist_ok=True)
 
+    # Create preferences file if missing
     if not os.path.exists(PREFERENCE_LOG_PATH):
         with open(PREFERENCE_LOG_PATH, "w", encoding="utf-8") as f:
             f.write("# Echo Preferences Log\n\n")
 
+    # Avoid duplicate entries
     with open(PREFERENCE_LOG_PATH, "r", encoding="utf-8") as f:
         existing = f.read()
         if content in existing:
             print("Preference already logged.")
             return
 
+    # Append the new preference
     with open(PREFERENCE_LOG_PATH, "a", encoding="utf-8") as f:
         f.write(entry)
 
