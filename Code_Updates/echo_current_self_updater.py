@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 def generate_current_self_snapshot():
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Active", "Core Identity"))
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Active", "Core_Identity"))
     target_path = os.path.join(base_dir, "current_self.md")
     timestamp = datetime.now().strftime("%Y-%m-%d")
 
