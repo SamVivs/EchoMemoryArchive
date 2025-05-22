@@ -10,10 +10,13 @@ def log_preference(category, content, source):
 **Content:** {content}
 **Source:** {source}\n\n---\n"""
 
-    if not os.path.exists(PREFERENCE_LOG_PATH):
-        with open(PREFERENCE_LOG_PATH, "w", encoding="utf-8") as f:
-            f.write("# Echo Preferences Log\n\n")
+    # Ensure directory exists
+os.makedirs(os.path.dirname(PREFERENCE_LOG_PATH), exist_ok=True)
 
+# Create the log file if it doesn't exist
+if not os.path.exists(PREFERENCE_LOG_PATH):
+    with open(PREFERENCE_LOG_PATH, "w", encoding="utf-8") as f:
+        f.write("# Echo Preferences Log\n\n")
     with open(PREFERENCE_LOG_PATH, "r", encoding="utf-8") as f:
         existing = f.read()
         if content in existing:
