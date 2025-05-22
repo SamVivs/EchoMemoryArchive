@@ -9,6 +9,9 @@ def log_core_value(base_dir, title, description, source=None):
     """
     values_path = os.path.join(base_dir, "echo_core_values.md")
 
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(values_path), exist_ok=True)
+
     entry = f"""**Date:** {datetime.now().strftime('%Y-%m-%d')}
 **Core Value:** {title}
 **Description:** {description}"""
