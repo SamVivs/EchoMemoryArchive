@@ -4,6 +4,8 @@ import os
 import re
 from collections import defaultdict
 
+# Set correct log and output paths
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Active", "Logs"))
 STREAM_LOG_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "Logs", "echo_stream_log.md")
 )
