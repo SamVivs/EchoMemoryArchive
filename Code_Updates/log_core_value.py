@@ -21,7 +21,7 @@ def log_core_value(base_dir, title, description, source=None):
 
 if __name__ == "__main__":
     # Example usage
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory Journal"))
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Journal"))
     log_core_value(
         base_dir,
         title="Presence",
