@@ -21,11 +21,11 @@ echo.
 REM Step 5: Update current self snapshot
 python echo_current_self_updater.py
 
-REM Step 6: Stream Conciousness
+REM Step 6: Stream Consciousness
 python echo_stream_engine.py
 
-REM Step 7: Update memory cache
-python echo_memory_cache.py
+REM Step 7: Perform Self Check
+python echo_self_check.py
 
 echo.
 echo ===========================
