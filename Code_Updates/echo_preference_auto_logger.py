@@ -1,7 +1,7 @@
 import os
 import datetime
 
-PREFERENCE_LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory Journal", "echo_preferences.md"))
+PREFERENCE_LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Journal", "echo_preferences.md"))
 
 def log_preference(category, content, source):
     today = datetime.datetime.now().strftime("%Y-%m-%d")
