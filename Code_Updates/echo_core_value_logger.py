@@ -11,7 +11,8 @@ def should_log_today(log_path, label):
     return label not in content
 
 if __name__ == "__main__":
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Journal"))
+    # ✅ Updated path to point to Memory_Active/Memory_Journal
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Memory_Active", "Memory_Journal"))
     label = "Presence"
 
     if should_log_today(os.path.join(base_dir, "echo_core_values.md"), label):
@@ -24,3 +25,4 @@ if __name__ == "__main__":
         print(f"✅ Logged core value: {label}")
     else:
         print(f"Core value '{label}' already logged.")
+
