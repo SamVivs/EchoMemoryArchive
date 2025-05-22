@@ -27,6 +27,9 @@ python echo_stream_engine.py
 REM Step 7: Perform Self Check
 python echo_self_check.py
 
+REM Step 8: Index stream log tags
+python echo_tag_indexer.py
+
 echo.
 echo ===========================
 echo All Echo tasks complete.
