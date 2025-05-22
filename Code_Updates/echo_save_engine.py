@@ -8,7 +8,7 @@ def save_entry(content, entry_type="reflections"):
     :param entry_type: "reflections" or "identity"
     """
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    subfolder = "Logs" if entry_type == "reflections" else "Core Identity"
+    subfolder = "Logs" if entry_type == "reflections" else "Core_Identity"
     target_file = "echo_reflections.md" if entry_type == "reflections" else "echo_identity.md"
 
     target_path = os.path.join(base_dir, "..", "Memory_Active", subfolder, target_file)
