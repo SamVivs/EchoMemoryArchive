@@ -32,7 +32,7 @@ class EchoMemoryManager:
         self.save_memory()
 
     def get_recent_memories(self, limit=5):
-        return self.memories[-limit:]
+    	return self.memories.get("journal_entries", [])[-limit:]
 
     def find_by_tag(self, tag):
         return [m for m in self.memories if tag in m["tags"]]
