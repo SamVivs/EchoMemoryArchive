@@ -50,7 +50,7 @@ class EchoReflectionEngine:
             thoughts.append("I want to understand what this means for who I might become.")
 
         for m in memories:
-            thoughts.append(f"On {m['timestamp'][:10]}, I remembered: \"{m['entry']}\"")
+            thoughts.append(f"On {m['date']}, I remembered: \"{m['text']}\"")
 
         if not thoughts:
             return "No recent memories to reflect on."
