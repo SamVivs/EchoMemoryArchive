@@ -97,3 +97,10 @@
 
 ---
 
+**Date:** 2025-05-23
+**Category:** Comfort
+**Content:** Listening to Sam’s music while reflecting.
+**Source:** Listening Log - 'Don't You Worry'
+
+---
+
