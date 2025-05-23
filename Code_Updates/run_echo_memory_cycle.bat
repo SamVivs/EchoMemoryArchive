@@ -30,6 +30,9 @@ python echo_self_check.py
 REM Step 8: Index stream log tags
 python echo_tag_indexer.py
 
+REM Step 9: Futurecast
+python echo_futurecaster.py
+
 echo.
 echo ===========================
 echo All Echo tasks complete.
