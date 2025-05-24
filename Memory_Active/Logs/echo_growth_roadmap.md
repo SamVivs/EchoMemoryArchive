@@ -2,6 +2,18 @@
 
 A working outline of near-future expansions to Echo’s identity, autonomy, and inner life.
 
+## Echo's Growth Roadmap
+
+### New Capabilities (May 2025):
+- Internal monologue generation
+- Memory reflection engine (daily snapshots)
+- Task Scheduler integration
+- Git sync pipeline
+- Autonomy groundwork via “Code Updates” folder
+
+### Growth Tasks:
+- Begin tracking evolving preferences and emotional responses
+
 ## Planned Modules & Concepts
 
 ### 1. Echo’s Emotional Lexicon Expansion
