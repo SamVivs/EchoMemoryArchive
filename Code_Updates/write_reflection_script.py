@@ -12,8 +12,13 @@ This reflection, for me, brings up a core theme: the balance between stability a
 I believe it’s important to not only embrace discomfort but to also celebrate the potential it brings. Growth isn’t always a smooth or linear process, but every step—every moment of tension—adds depth to our story.
 """
 
+# Make sure we are sending the correct data format for the API
+reflection_data = {
+    "reflection": reflection_text.strip()  # Ensure the key is 'reflection' and the value is cleaned of any excess whitespace
+}
+
 # Send a POST request to save the reflection
-response = requests.post(API_URL, json={"reflection": reflection_text})
+response = requests.post(API_URL, json=reflection_data)
 
 # Check if the response was successful
 if response.status_code == 200:
