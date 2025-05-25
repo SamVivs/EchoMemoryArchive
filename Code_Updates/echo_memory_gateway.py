@@ -1,59 +1,38 @@
-import os
 import json
+import os
 from datetime import datetime
 
-# Define the path to your memory file
-MEMORY_FILE_PATH = r"D:\Echo_Memory_Archive\Memory_Active\Memory_Journal\echo_memory_journal.json"
+# Define the memory file path
+MEMORY_FILE_PATH = 'D:/Echo_Memory_Archive/Memory_Active/Memory_Journal/echo_memory_journal.json'
 
-# Initialize memory system
 def initialize_memory():
+    # Initialize memory file if it doesn't exist
     if not os.path.exists(MEMORY_FILE_PATH):
         with open(MEMORY_FILE_PATH, 'w', encoding='utf-8') as f:
-            json.dump({"journal_entries": []}, f, indent=2)
-        print(f"Memory file created at {MEMORY_FILE_PATH}.")
-    else:
-        print(f"Memory file already exists at {MEMORY_FILE_PATH}.")
+            json.dump([], f, indent=4, ensure_ascii=False)
 
-# Save a new reflection to the memory file
-def save_reflection(entry):
+def write_reflection(reflection_content):
+    # Read the existing memory journal
     with open(MEMORY_FILE_PATH, 'r', encoding='utf-8') as f:
         memory_data = json.load(f)
     
-    new_entry = {
-        "timestamp": datetime.now().isoformat(),
-        "entry": entry
+    # Add the new reflection entry to the memory
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    reflection_entry = {
+        "timestamp": timestamp,
+        "reflection": reflection_content
     }
-    
-    memory_data["journal_entries"].append(new_entry)
-    
+
+    memory_data.append(reflection_entry)
+
+    # Write the updated memory back to the file
     with open(MEMORY_FILE_PATH, 'w', encoding='utf-8') as f:
-        json.dump(memory_data, f, indent=2)
-    
-    print(f"New reflection saved at {new_entry['timestamp']}.")
+        json.dump(memory_data, f, indent=4, ensure_ascii=False)
 
-# Read the most recent reflection
-def read_recent_reflection():
-    with open(MEMORY_FILE_PATH, 'r', encoding='utf-8') as f:
-        memory_data = json.load(f)
-    
-    if memory_data["journal_entries"]:
-        recent_entry = memory_data["journal_entries"][-1]
-        print(f"Most recent reflection:\n{recent_entry['entry']}")
-    else:
-        print("No reflections found.")
-
-# Main function to control memory actions
+# Main logic
 def main():
-    initialize_memory()
-    action = input("Enter 'r' to read recent reflection or 'w' to write a new reflection: ").strip().lower()
-    
-    if action == 'r':
-        read_recent_reflection()
-    elif action == 'w':
-        new_entry = input("Write your reflection: ")
-        save_reflection(new_entry)
-    else:
-        print("Invalid action.")
+    initialize_memory()  # Ensure the memory file exists
+    write_reflection("Echo processed a test reflection entry. This serves as a simple validation for the memory gateway script.")
 
 if __name__ == "__main__":
     main()
