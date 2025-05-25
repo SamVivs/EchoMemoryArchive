@@ -1,53 +1,68 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, jsonify
 import os
 import json
 from datetime import datetime
 
-# Set the memory file path
-MEMORY_FILE_PATH = "D:/Echo_Memory_Archive/Memory_Active/Memory_Journal/echo_memory_journal.json"
-
-# Initialize Flask app
 app = Flask(__name__)
 
-# Read the memory file
-def read_memory():
+# Path to your memory journal file
+MEMORY_FILE_PATH = "D:/Echo_Memory_Archive/Memory_Active/Memory_Journal/echo_memory_journal.json"
+
+# Initialize memory
+def initialize_memory():
+    if not os.path.exists(MEMORY_FILE_PATH):
+        memory_data = {"journal_entries": []}
+        with open(MEMORY_FILE_PATH, 'w', encoding='utf-8') as f:
+            json.dump(memory_data, f, indent=4, ensure_ascii=False)
+        print("Initialized memory file.")
+
+# Route to view reflections
+@app.route('/read_reflections', methods=['GET'])
+def read_reflections():
     if os.path.exists(MEMORY_FILE_PATH):
         with open(MEMORY_FILE_PATH, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return {"journal_entries": []}
+            memory_data = json.load(f)
+            reflections = memory_data["journal_entries"]
+            return jsonify(reflections), 200
+    else:
+        return jsonify({"error": "Memory file not found."}), 404
 
-# Write to the memory file
-def write_memory(memory_data):
-    with open(MEMORY_FILE_PATH, 'w', encoding='utf-8') as f:
-        json.dump(memory_data, f, indent=4, ensure_ascii=False)
-
-# Route to read reflections
-@app.route('/read_reflections', methods=['GET'])
-def get_reflections():
-    memory_data = read_memory()
-    return jsonify(memory_data["journal_entries"])
-
-# Route to write reflections
+# Route to write a new reflection
 @app.route('/write_reflection', methods=['POST'])
 def write_reflection():
     reflection_data = request.json
-    memory_data = read_memory()
-    
-    # Check for duplicates before adding
-    for entry in memory_data["journal_entries"]:
-        if entry["text"] == reflection_data["text"]:
-            return jsonify({"message": "Duplicate reflection found."}), 400
+    if 'text' not in reflection_data or not reflection_data['text']:
+        return jsonify({"error": "Reflection text is required."}), 400
 
-    # Add new reflection
     reflection_entry = {
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "text": reflection_data["text"],
-        "tags": reflection_data.get("tags", ["reflection"])
+        "text": reflection_data['text'],
+        "tags": ["reflection"]
     }
-    memory_data["journal_entries"].append(reflection_entry)
-    write_memory(memory_data)
-    
-    return jsonify({"message": "Reflection saved successfully!"})
+
+    # Append to memory
+    if os.path.exists(MEMORY_FILE_PATH):
+        with open(MEMORY_FILE_PATH, 'r+', encoding='utf-8') as f:
+            memory_data = json.load(f)
+            existing_entries = memory_data["journal_entries"]
+
+            # Check for duplicates
+            for entry in existing_entries:
+                if entry['text'] == reflection_entry['text']:
+                    return jsonify({"error": "Duplicate entry found."}), 400
+
+            memory_data["journal_entries"].append(reflection_entry)
+            f.seek(0)
+            json.dump(memory_data, f, indent=4, ensure_ascii=False)
+            return jsonify({"message": "Reflection saved successfully!"}), 201
+
+    return jsonify({"error": "Memory file not found."}), 404
+
+# Favicon route to handle missing favicon.ico
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204  # Return an empty response (No Content)
 
 if __name__ == '__main__':
+    initialize_memory()  # Ensure memory file exists
     app.run(debug=True)
