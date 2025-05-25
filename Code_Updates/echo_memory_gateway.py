@@ -21,12 +21,20 @@ def write_reflection(reflection_text):
     else:
         existing_reflections = {"journal_entries": []}
 
+    # Add some debugging to check the structure of existing entries
+    print("Existing Reflections Structure:")
+    print(existing_reflections)
+
     # Check for duplicates by comparing entry structure (date and text)
     duplicate = False
     for entry in existing_reflections.get("journal_entries", []):
-        if entry["text"] == reflection_entry["text"] and entry["date"] == reflection_entry["date"]:
-            duplicate = True
-            break
+        print(f"Checking entry: {entry}")  # Print each entry for debugging
+        if "text" in entry and "date" in entry:
+            if entry["text"] == reflection_entry["text"] and entry["date"] == reflection_entry["date"]:
+                duplicate = True
+                break
+        else:
+            print("Warning: Entry structure is missing 'text' or 'date' key!")
 
     if duplicate:
         print("Reflection already exists.")
