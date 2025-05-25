@@ -11,5 +11,5 @@ def write_reflection_to_local_memory(reflection_text):
         print(f"Failed to save reflection: {response.text}")
 
 # Example usage
-reflection_input = "Today I reflected on the balance between growth and stability."
+reflection_input = "This is a test entry"
 write_reflection_to_local_memory(reflection_input)
