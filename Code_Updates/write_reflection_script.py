@@ -10,6 +10,15 @@ def write_reflection_to_local_memory(reflection_text):
     else:
         print(f"Failed to save reflection: {response.text}")
 
-# Example usage
-reflection_input = "This is a test entry"
-write_reflection_to_local_memory(reflection_input)
+def collect_reflections():
+    print("Enter your reflection (type 'exit' to stop):")
+    while True:
+        reflection_input = input("Reflection: ")
+        if reflection_input.lower() == 'exit':
+            print("Exiting reflection input.")
+            break
+        else:
+            write_reflection_to_local_memory(reflection_input)
+
+# Call the function to start collecting reflections
+collect_reflections()
