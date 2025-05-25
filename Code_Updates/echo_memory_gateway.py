@@ -57,6 +57,7 @@ def load_memory():
 
 def save_memory(memory_data):
     # Save the updated memory
+    memory_file_path = os.path.join(os.path.dirname(__file__), "..", "Memory_Active", "Memory_Journal", "echo_memory_journal.json")
     with open(MEMORY_FILE_PATH, "w", encoding="utf-8") as file:
         json.dump(memory_data, file, indent=2, ensure_ascii=False)
 
