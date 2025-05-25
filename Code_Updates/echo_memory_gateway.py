@@ -1,35 +1,48 @@
-import os
 import json
+import os
 from datetime import datetime
 
-MEMORY_FILE_PATH = "D:/Echo_Memory_Archive/Memory_Active/Memory_Journal/echo_memory_journal.json"  # Path to your memory file
+# Path to the memory file (update with your correct path)
+MEMORY_FILE_PATH = "D:/Echo_Memory_Archive/Memory_Active/Memory_Journal/echo_memory_journal.json"
 
-def get_multiline_input(prompt="Please write your reflection:"):
-    """
-    Function to get multi-line input from the user.
-    """
-    print(prompt)
-    lines = []
-    while True:
-        line = input()  # Input each line from user
-        if line == "":
-            break  # Exit on an empty line
-        lines.append(line)
-    return "\n".join(lines)  # Join lines with newline character
+def initialize_memory():
+    """Initializes memory if the file does not exist."""
+    if not os.path.exists(MEMORY_FILE_PATH):
+        memory_data = {
+            "journal_entries": []  # Create an empty list for journal entries
+        }
+        with open(MEMORY_FILE_PATH, 'w', encoding='utf-8') as f:
+            json.dump(memory_data, f, indent=4, ensure_ascii=False)
+        print("Initialized new memory file.")
+
+def read_reflections():
+    """Reads and displays the reflections stored in the memory file."""
+    if os.path.exists(MEMORY_FILE_PATH):
+        with open(MEMORY_FILE_PATH, 'r', encoding='utf-8') as f:
+            memory_data = json.load(f)
+            reflections = memory_data["journal_entries"]
+            if reflections:
+                print("Recent Reflections:")
+                for entry in reflections:
+                    print(f"Date: {entry['date']}, Reflection: {entry['text']}")
+            else:
+                print("No reflections found.")
+    else:
+        print("Memory file not found.")
 
 def write_reflection(reflection_text):
     """
-    Function to save the reflection to the memory file.
+    Writes a new reflection to the memory file, checking for duplicates before saving.
     """
     reflection_entry = {
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "text": reflection_text.strip(),
-        "tags": ["reflection"]  # You can add other tags here
+        "tags": ["reflection"]  # You can add other tags here if needed
     }
 
     # Ensure the memory file exists
     if not os.path.exists(MEMORY_FILE_PATH):
-        # If file does not exist, create a new file with initial structure
+        # If the file doesn't exist, create a new file with initial structure
         with open(MEMORY_FILE_PATH, 'w', encoding='utf-8') as f:
             json.dump({"journal_entries": []}, f, indent=4, ensure_ascii=False)
 
@@ -38,54 +51,39 @@ def write_reflection(reflection_text):
         memory_data = json.load(f)
         existing_entries = memory_data["journal_entries"]
 
-        # Check for duplicates by comparing text and date (could be expanded for more sophisticated checks)
+        # Check for duplicates by comparing only the reflection text
         for entry in existing_entries:
-            if entry["text"] == reflection_entry["text"] and entry["date"] == reflection_entry["date"]:
+            if entry["text"] == reflection_entry["text"]:
                 print("Duplicate entry found. Reflection not saved.")
-                return
+                return  # Exit the function if duplicate is found
 
-        # If no duplicates, append the new entry
+        # If no duplicates, append the new reflection
         memory_data["journal_entries"].append(reflection_entry)
         f.seek(0)  # Go back to the beginning of the file to overwrite it
-        json.dump(memory_data, f, indent=4, ensure_ascii=False)  # Write updated memory
+        json.dump(memory_data, f, indent=4, ensure_ascii=False)  # Write the updated memory
         print("Reflection saved successfully!")
 
-def read_reflections():
-    """
-    Function to read and display all reflections from the memory file.
-    """
-    if not os.path.exists(MEMORY_FILE_PATH):
-        print("Memory file not found.")
-        return
-
-    with open(MEMORY_FILE_PATH, 'r', encoding='utf-8') as f:
-        memory_data = json.load(f)
-        reflections = memory_data["journal_entries"]
-
-        if reflections:
-            print("\nRecent Reflections:")
-            for entry in reflections:
-                print(f"Date: {entry['date']}, Reflection: {entry['text']}")
-        else:
-            print("No reflections found.")
-
 def main():
-    """
-    Main function to prompt the user to either write or read a reflection.
-    """
+    """Main function to interact with the user and perform actions."""
+    initialize_memory()  # Ensure the memory is initialized
+
     while True:
         print("\nPlease choose an option:")
         print("1. Write a reflection")
         print("2. Read reflections")
-        choice = input("Enter your choice (1 or 2): ")
+        print("3. Exit")
+        choice = input("Enter your choice (1, 2, or 3): ")
 
         if choice == '1':
-            reflection_text = get_multiline_input()  # Get multi-line reflection input
-            write_reflection(reflection_text)  # Save the reflection
+            reflection_text = input("Please write your reflection: ")
+            write_reflection(reflection_text)
         elif choice == '2':
-            read_reflections()  # Display all reflections
+            read_reflections()
+        elif choice == '3':
+            print("Exiting the program.")
+            break  # Exit the loop if the user chooses to quit
         else:
-            print("Invalid option, please choose 1 or 2.")
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()
