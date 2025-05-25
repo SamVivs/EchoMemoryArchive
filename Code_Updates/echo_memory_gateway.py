@@ -33,6 +33,7 @@ def read_reflections():
 def write_reflection(reflection_text):
     """
     Writes a new reflection to the memory file, checking for duplicates before saving.
+    Handles multiline input correctly.
     """
     reflection_entry = {
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -75,7 +76,14 @@ def main():
         choice = input("Enter your choice (1, 2, or 3): ")
 
         if choice == '1':
-            reflection_text = input("Please write your reflection: ")
+            print("Please write your reflection. End input with a blank line:")
+            reflection_lines = []
+            while True:
+                line = input()
+                if line == "":  # Empty line signals end of input
+                    break
+                reflection_lines.append(line)
+            reflection_text = "\n".join(reflection_lines)  # Combine into a multiline string
             write_reflection(reflection_text)
         elif choice == '2':
             read_reflections()
