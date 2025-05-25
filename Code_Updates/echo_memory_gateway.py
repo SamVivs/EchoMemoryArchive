@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 
 # Define the path to your memory file
-MEMORY_FILE_PATH = os.path.join(os.getcwd(), "Echo_Memory_Archive", "Memory_Active", "Memory_Journal", "echo_memory_journal.json")
+MEMORY_FILE_PATH = r"D:\Echo_Memory_Archive\Memory_Active\Memory_Journal\echo_memory_journal.json"
 
 # Initialize memory system
 def initialize_memory():
