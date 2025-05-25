@@ -21,7 +21,9 @@ reflection_data = {
 response = requests.post(API_URL, json=reflection_data)
 
 # Check if the response was successful
-if response.status_code == 200:
+if response.status_code == 201:
     print("Reflection saved successfully!")
+elif response.status_code == 400:
+    print(f"Failed to save reflection: {response.json().get('error')}")
 else:
-    print(f"Failed to save reflection: {response.text}")
+    print(f"Unexpected error: {response.status_code} - {response.text}")
