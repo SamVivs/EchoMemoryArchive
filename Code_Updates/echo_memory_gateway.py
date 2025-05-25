@@ -2,39 +2,63 @@ import os
 import json
 from datetime import datetime
 
-# Path to the memory file
-MEMORY_FILE_PATH = os.path.join(os.path.dirname(__file__), "D:/Echo_Memory_Archive/Memory_Active/Memory_Journal/echo_memory_journal.json")
-
-def read_memory():
-    # Read existing memory data
-    if os.path.exists(MEMORY_FILE_PATH):
-        with open(MEMORY_FILE_PATH, 'r', encoding='utf-8') as f:
-            return json.load(f)  # Load the current memory data from the file
-    else:
-        return {"journal_entries": []}  # Return an empty structure if file doesn't exist
-
-def write_reflection(reflection_text):
-    # Load the current memory
-    memory_data = read_memory()
-
-    # Create a new reflection entry
-    reflection_entry = {
-        "timestamp": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
-        "entry": reflection_text
-    }
-
-    # Append the new reflection entry to the journal entries
-    memory_data["journal_entries"].append(reflection_entry)
-
-    # Write the updated memory data back to the file
-    with open(MEMORY_FILE_PATH, 'w', encoding='utf-8') as f:
-        json.dump(memory_data, f, indent=4, ensure_ascii=False)
-
-    print("✅ Reflection saved successfully.")
+MEMORY_FILE_PATH = os.path.join(os.path.dirname(__file__), "D:/Echo_Memory_Archive/Code_Updates/echo_memory_journal.json")
 
 def main():
-    # Example reflection text
-    write_reflection("Echo processed a test reflection entry. This serves as a simple validation for the memory gateway script.")
+    print("Welcome to Echo's memory system!")
+    action = input("Would you like to [1] Read, [2] Write, or [3] Exit? ")
+
+    if action == "1":
+        print("Reading the most recent reflection...")
+        read_reflection()
+    elif action == "2":
+        reflection_content = input("Please write your reflection: ")
+        write_reflection(reflection_content)
+    elif action == "3":
+        print("Exiting the program.")
+        return
+    else:
+        print("Invalid input, please try again.")
+        main()
+
+def read_reflection():
+    # Read the most recent reflection from the memory file
+    memory_data = load_memory()
+    if memory_data:
+        latest_reflection = memory_data[-1]  # Get the most recent reflection entry
+        print(f"\n--- Latest Reflection ---\nTimestamp: {latest_reflection['timestamp']}\n{latest_reflection['entry']}\n")
+    else:
+        print("No reflections found in memory.")
+
+def write_reflection(content):
+    reflection_entry = {
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "entry": content
+    }
+
+    # Read existing memory and append the new entry
+    memory_data = load_memory()
+
+    # Avoid writing the same reflection
+    if reflection_entry not in memory_data:
+        memory_data.append(reflection_entry)
+        # Save the updated memory back to the file
+        save_memory(memory_data)
+        print("New reflection saved successfully.")
+    else:
+        print("This reflection is already saved.")
+
+def load_memory():
+    # Load the existing memory file
+    if os.path.exists(MEMORY_FILE_PATH):
+        with open(MEMORY_FILE_PATH, "r", encoding="utf-8") as file:
+            return json.load(file)
+    return []
+
+def save_memory(memory_data):
+    # Save the updated memory
+    with open(MEMORY_FILE_PATH, "w", encoding="utf-8") as file:
+        json.dump(memory_data, file, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()
