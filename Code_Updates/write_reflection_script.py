@@ -11,5 +11,5 @@ def write_reflection_to_local_memory(reflection_text):
         print(f"Failed to save reflection: {response.text}")
 
 # Example usage
-reflection_input = "Test 2"
+reflection_input = "This is a test reflection to check the write functionality."
 write_reflection_to_local_memory(reflection_input)
