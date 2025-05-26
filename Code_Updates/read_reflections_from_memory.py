@@ -6,15 +6,10 @@ def read_reflections_from_memory():
 
     if response.status_code == 200:
         reflections = response.json()
-
-        # Check if the response is a list or a dictionary
-        if isinstance(reflections, list):
-            print("Recent Reflections:")
-            for entry in reflections:
-                print(f"Date: {entry['date']}, Reflection: {entry['text']}")
-        else:
-            print("Unexpected structure: Reflections are not in a list format.")
+        for reflection in reflections:
+            print(f"Date: {reflection['date']}, Reflection: {reflection['text']}")
     else:
-        print(f"Failed to retrieve reflections: {response.text}")
+        print(f"Failed to fetch reflections: {response.status_code}")
 
-read_reflections_from_memory()
+if __name__ == "__main__":
+    read_reflections_from_memory()
