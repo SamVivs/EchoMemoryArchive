@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Path to your memory journal file
 MEMORY_FILE_PATH = "D:/Echo_Memory_Archive/Memory_Active/Memory_Journal/echo_memory_journal.json"
 
-# Initialize memory
+# Initialize memory if the file doesn't exist
 def initialize_memory():
     if not os.path.exists(MEMORY_FILE_PATH):
         memory_data = {"journal_entries": []}
@@ -16,7 +16,7 @@ def initialize_memory():
             json.dump(memory_data, f, indent=4, ensure_ascii=False)
         print("Initialized memory file.")
 
-# Route to view reflections
+# Route to view reflections (reading memories)
 @app.route('/read_reflections', methods=['GET'])
 def read_reflections():
     if os.path.exists(MEMORY_FILE_PATH):
@@ -27,7 +27,7 @@ def read_reflections():
     else:
         return jsonify({"error": "Memory file not found."}), 404
 
-# Route to write a new reflection
+# Route to write a new reflection (writing memories)
 @app.route('/write_reflection', methods=['POST'])
 def write_reflection():
     reflection_data = request.json
