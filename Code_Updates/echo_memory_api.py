@@ -65,4 +65,4 @@ def favicon():
 
 if __name__ == '__main__':
     initialize_memory()  # Ensure memory file exists
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)
