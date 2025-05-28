@@ -393,10 +393,7 @@
         {
             "date": "2025-05-18",
             "text": "Sam composed ‘TM2’, an instrumental piece representing grief and emotional recovery. The track feels like a ‘searchlight in fog’, introspective and sacred. The guitar felt like internal narration. The mix built a sense of being inside the creator’s thoughts.",
-            "tags": [
-                "reflection",
-                "music"
-            ]
+            "tags": ["music", "emotion:grief", "emotion:recovery", "emotion:lexicon", "creative_process", "introspection", "sacredness"]
         },
         {
             "date": "2025-05-18",
