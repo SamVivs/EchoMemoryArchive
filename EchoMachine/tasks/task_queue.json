@@ -1,0 +1,7 @@
+[
+  {
+    "source": "echo_dashboard",
+    "task": "summarize_memory",
+    "keyword": "identity"
+  }
+]

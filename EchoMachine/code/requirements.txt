@@ -1,0 +1,4 @@
+networkx
+pyvis
+sentence-transformers
+streamlit
